@@ -8,23 +8,26 @@ const carBrands = {
   BMW: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/1200px-BMW.svg.png",
   Ferrari:
     "/asset/carlogo/Ferrari.svg",
-  Ford: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ford_Motor_Company_Logo.svg/1200px-Ford_Motor_Company_Logo.svg.png",
+  Ford: "/asset/carlogo/Ford.svg",
   Honda: "/asset/carlogo/Honda.svg",
   Jeep: "/asset/carlogo/jeep.svg",
+  Jaguar: "/asset/carlogo/jaguar.svg",
+  Pagani: "/asset/carlogo/pagani.png",
   Koenigsegg:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Koenigsegg_logo.svg/1200px-Koenigsegg_logo.svg.png",
+    "https:/asset/carlogo/koenigsegg.png",
   Lamborghini: "/asset/carlogo/Lamborghini.svg",
   Maserati:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Maserati_logo.svg/1200px-Maserati_logo.svg.png",
   Mazda: "/asset/carlogo/mazda.png",
   McLaren: "/asset/carlogo/Mclaren.png",
   "Mercedes-Benz":
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_Logo_2010.svg/1200px-Mercedes-Benz_Logo_2010.svg.png",
+    "/asset/carlogo/Mercedes-Benz.svg",
   Mitsubishi:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mitsubishi_logo.svg/1200px-Mitsubishi_logo.svg.png",
   BYD: "/asset/carlogo/byd.svg",
   WMotors: "/asset/carlogo/wmotors.png",
 };
+
 
 
 
