@@ -345,7 +345,6 @@
         color: white;
       }
 
-      /* Category Grid */
       .category-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -381,7 +380,6 @@
         font-size: 1rem;
       }
 
-      /* Note Styles - Hidden by default */
       .note {
         display: none;
         background: rgba(135, 207, 235, 0.178);
@@ -403,8 +401,6 @@
         margin-bottom: 10px;
         line-height: 1.6;
       }
-
-      /* Modal Styles */
       .modal {
         display: none;
         position: fixed;
@@ -546,8 +542,6 @@
         background: transparent;
         color: white;
       }
-
-      /* Result Info */
       .result-info {
         display: flex;
         justify-content: space-between;
@@ -590,7 +584,6 @@
         color: var(--text-secondary);
       }
 
-      /* View States */
       .initial-view {
         display: block;
       }
@@ -599,7 +592,6 @@
         display: none;
       }
 
-      /* Detail View Styles */
       .detail-view {
         display: none;
       }
@@ -691,7 +683,6 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-container">
         <a href="index.html" class="navbar-brand"> AUTOLUXE </a>
@@ -995,8 +986,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Script biasa (bukan module) untuk fungsi global -->
     <script>
       async function findAndShowCarDetail(brand, model) {
         try {
@@ -1034,21 +1023,18 @@
         }
       }
 
-      // Fungsi untuk menampilkan detail mobil
+      // Fungsi nampilkan detail mobil
       function showCarDetail(brand, model) {
         // Sembunyikan tampilan awal dan hasil
         document.getElementById("initialView").style.display = "none";
         document.getElementById("resultView").style.display = "none";
 
-        // Tampilkan tampilan detail
         document.getElementById("detailView").style.display = "block";
-
-        // Set judul detail
         document.getElementById(
           "detailTitle"
         ).innerHTML = `<i class="fas fa-car"></i> ${brand} ${model}`;
 
-        // Reset konten detail
+
         document.getElementById("detailContent").innerHTML = `
           <div class="loading">
             <i class="fas fa-spinner fa-spin fa-2x"></i>
@@ -1056,7 +1042,6 @@
           </div>
         `;
 
-        // Ambil data detail mobil
         fetchCarDetail(brand, model);
       }
 
@@ -1099,8 +1084,6 @@
           `;
         }
       }
-
-      // Fungsi untuk menampilkan detail mobil
       function displayCarDetail(car) {
         const detailContent = document.getElementById("detailContent");
 
@@ -1236,12 +1219,10 @@
         });
 
         backBtn.addEventListener("click", () => {
-          // Navigasi ke halaman utama dengan hash #home
-          window.location.href = "topsis.html";
+          window.location.href = "drivelogic.html";
         });
 
         backFromDetail.addEventListener("click", () => {
-          // Navigasi ke halaman hasil dengan hash #results
           window.location.href = "index.html#results";
         });
       }
@@ -1677,3 +1658,4 @@
     </script>
   </body>
 </html>
+
