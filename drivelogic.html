@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <meta name="author" content="DriveLogic Team" />
+    <title>AutoLuxe - DriveLogic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg-primary: #000000;
+        --bg-secondary: #0a0a0f;
+        --bg-card: rgba(10, 10, 15, 0.7);
+        --bg-card-hover: rgba(20, 20, 30, 0.85);
+        --accent-primary: #87ceeb;
+        --accent-secondary: #00d4ff;
+        --text-primary: #ffffff;
+        --text-secondary: #b0c4de;
+        --border-color: rgba(135, 206, 235, 0.3);
+        --glass-bg: rgba(18, 18, 18, 0.475);
+        --glass-border: rgba(135, 206, 235, 0.2);
+        --rank-1: linear-gradient(
+          90deg,
+          rgba(255, 205, 27, 0.25),
+          rgba(255, 215, 0, 0.05)
+        );
+        --rank-2: linear-gradient(
+          90deg,
+          rgba(192, 192, 192, 0.2),
+          rgba(192, 192, 192, 0.05)
+        );
+        --rank-3: linear-gradient(
+          90deg,
+          rgba(205, 127, 50, 0.2),
+          rgba(205, 127, 50, 0.05)
+        );
+        color-scheme: dark;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Rajdhani", sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        overflow-x: hidden;
+      }
+
+      body {
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(135, 206, 235, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 30%,
+            rgba(0, 213, 255, 0.243) 0%,
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 50% 70%,
+            rgba(135, 206, 235, 0.05) 0%,
+            transparent 30%
+          ),
+          linear-gradient(180deg, #000000 0%, #0a0a0f 100%);
+        background-attachment: fixed;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-primary);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .navbar-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 6px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar-brand {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 2rem;
+        color: var(--text-primary);
+        text-decoration: none;
+        letter-spacing: 2px;
+        display: flex;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        padding-top: 100px; /* Add space for fixed navbar */
+      }
+
+      /* Header Styles */
+      .header {
+        text-align: center;
+        padding: 60px 0;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-image: url(https://johnstri666.github.io/AutoLuxe/IMG/dealer.jpg);
+        margin-bottom: 40px;
+        overflow: hidden;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+      }
+
+      .header h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+        color: white;
+        -webkit-background-clip: text;
+        background-clip: text;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+      }
+
+      .header p {
+        font-size: 1.4rem;
+        color: white;
+        font-weight: 300;
+        margin-top: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Card Styles */
+      .card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(30px);
+        padding: 30px;
+        margin-top: 30px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: 0.5px solid white;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30%;
+        height: 4px;
+        background: white;
+      }
+
+      .card h3 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+      }
+
+      .card h3 i {
+        margin-right: 15px;
+        color: var(--accent-primary);
+        font-size: 1.8rem;
+      }
+
+      .card p.small {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
+
+      /* Button Styles */
+      button {
+        background-color: white;
+        border: none;
+        padding: 15px 30px;
+        color: rgb(0, 0, 0);
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+        margin: 30px auto;
+        display: block;
+        border: 1px solid white;
+      }
+
+      button:hover {
+        background-color: transparent;
+        color: white;
+      }
+
+      .secondary-btn {
+        background: white;
+        border: 2px solid white;
+        color: rgb(0, 0, 0);
+        padding: 10px 20px;
+        margin: 2px 0 0 0;
+      }
+
+      .secondary-btn:hover {
+        background: transparent;
+        color: white;
+      }
+
+      .back-btn {
+        background: transparent;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        margin: 20px 0;
+      }
+
+      /* Preference Styles - 2 Column Grid Layout */
+      .preference-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .preference-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        padding: 20px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .preference-item:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: var(--accent-primary);
+      }
+
+      .preference-info {
+        flex: 1;
+      }
+
+      .preference-info label {
+        display: block;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        margin-bottom: 5px;
+      }
+
+      .preference-description {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+
+      .preference-control {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .preference-btn {
+        width: 40px;
+        height: 40px;
+        clip-path: polygon(
+          25% 0%,
+          75% 0%,
+          100% 50%,
+          75% 100%,
+          25% 100%,
+          0% 50%
+        );
+        background: rgba(135, 206, 235, 0.2);
+        color: var(--accent-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 1.2rem;
+      }
+
+      .preference-btn:hover {
+        background: var(--accent-primary);
+        color: var(--bg-primary);
+      }
+
+      .preference-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .preference-btn:disabled:hover {
+        background: rgba(135, 206, 235, 0.2);
+        color: var(--accent-primary);
+      }
+
+      .preference-value {
+        min-width: 50px;
+        text-align: center;
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      /* Category Grid */
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .category-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        padding: 15px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .category-item:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: var(--accent-primary);
+      }
+
+      .category-item input {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent-primary);
+      }
+
+      .category-item label {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      /* Note Styles - Hidden by default */
+      .note {
+        display: none;
+        background: rgba(135, 207, 235, 0.178);
+        padding: 25px;
+        margin-top: 30px;
+      }
+
+      .note strong {
+        color: var(--accent-primary);
+        font-weight: 600;
+      }
+
+      .note ul {
+        padding-left: 20px;
+        margin-top: 15px;
+      }
+
+      .note li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: black;
+        border: 1px solid var(--glass-border);
+        max-width: 800px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 30px;
+        position: relative;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .modal-header h3 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--accent-primary);
+      }
+
+      .close-modal {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 5px;
+        margin: 0;
+      }
+
+      .close-modal:hover {
+        color: var(--text-primary);
+      }
+
+      /* Table Styles */
+      .result-table {
+        margin-top: 20px;
+        overflow-x: auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+      }
+
+      .result-table.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.02);
+        overflow: hidden;
+      }
+
+      th {
+        background: rgba(135, 206, 235, 0.1);
+        color: white;
+        font-family: "Orbitron", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 20px;
+        text-align: left;
+      }
+
+      td {
+        padding: 15px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      tr {
+        transition: all 0.3s ease;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Ranking Styles */
+      .rank-1 {
+        background: var(--rank-1);
+        position: relative;
+      }
+
+      .rank-2 {
+        background: var(--rank-2);
+        position: relative;
+      }
+
+      .rank-3 {
+        background: var(--rank-3);
+        position: relative;
+      }
+
+      .rank-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-right: 3px;
+        margin-left: 5px;
+      }
+
+      /* Action Button */
+      .action-btn {
+        background: white;
+        border: 1px solid white;
+        padding: 9px 18px;
+        color: var(--bg-primary);
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .action-btn:hover {
+        background: transparent;
+        color: white;
+      }
+
+      /* Result Info */
+      .result-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        background: transparent;
+      }
+
+      .result-info h4 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: white;
+        margin: 0;
+      }
+
+      .result-info p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 1rem;
+      }
+
+      .result-stats {
+        display: flex;
+        gap: 30px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+      }
+
+      /* View States */
+      .initial-view {
+        display: block;
+      }
+
+      .result-view {
+        display: none;
+      }
+
+      /* Detail View Styles */
+      .detail-view {
+        display: none;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .detail-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .detail-item h4 {
+        color: var(--accent-primary);
+        margin-bottom: 10px;
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .detail-item p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .navbar-menu {
+          display: none;
+        }
+
+        .navbar-toggle {
+          display: block;
+        }
+
+        .header h1 {
+          font-size: 2.8rem;
+        }
+
+        .header h2 {
+          font-size: 1.8rem;
+        }
+
+        .header p {
+          font-size: 1.1rem;
+        }
+
+        .preference-container {
+          grid-template-columns: 1fr;
+        }
+
+        .preference-item {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 15px;
+        }
+
+        .preference-control {
+          align-self: flex-end;
+        }
+
+        .category-grid {
+          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+
+        .result-info {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .result-stats {
+          width: 100%;
+          justify-content: space-around;
+        }
+
+        .modal-content {
+          width: 95%;
+          padding: 20px;
+        }
+
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand"> AUTOLUXE </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="header">
+        <div class="header-content">
+          <h1>DriveLogic</h1>
+          <p>
+            Temukan kendaraan ideal Anda dengan analisis multi-kriteria
+            berdasarkan preferensi pribadi
+          </p>
+        </div>
+      </div>
+
+      <!-- Katogorix-->
+      <div id="initialView" class="initial-view">
+        <div class="card">
+          <h3>Pilih Kategori Kendaraan</h3>
+          <p class="small">
+            Pilih satu atau beberapa kategori kendaraan yang Anda minati atau
+            tidak sama sekali (All).
+          </p>
+
+          <div class="category-grid">
+            <div class="category-item">
+              <input type="checkbox" id="catSUV" value="SUV" />
+              <label for="catSUV">SUV</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catHatchback" value="Hatchback" />
+              <label for="catHatchback">Hatchback</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catOffRoad" value="Off Road" />
+              <label for="catOffRoad">Off Road</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catSport" value="Sport" />
+              <label for="catSport">Sport</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catSupercar" value="Supercar" />
+              <label for="catSupercar">Supercar</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catHypercar" value="Hypercar" />
+              <label for="catHypercar">Hypercar</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catConvertible" value="Convertible" />
+              <label for="catConvertible">Convertible</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catHybrid" value="Hybrid" />
+              <label for="catHybrid">Hybrid</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catElectric" value="Electric" />
+              <label for="catElectric">Electric</label>
+            </div>
+            <div class="category-item">
+              <input type="checkbox" id="catSedan" value="Sedan" />
+              <label for="catSedan">Sedan</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Decision Support System</h3>
+          <p class="small">
+            Atur tingkat kepentingan setiap kriteria. Ikuti panduan untuk lebih
+            lanjut.
+          </p>
+
+          <div style="display: flex; gap: 20px">
+            <button id="guideBtn" class="secondary-btn">
+              <i class="fas fa-question-circle"></i> Guide
+            </button>
+          </div>
+
+          <div class="preference-container">
+            <div class="preference-item">
+              <div class="preference-info">
+                <label>Price (semakin murah semakin bagus)</label>
+                <div class="preference-description">
+                  Harga kendaraan (cost criterion)
+                </div>
+              </div>
+              <div class="preference-control">
+                <div class="preference-btn" id="prefPricePrev">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="preference-value" id="prefPriceValue">1</div>
+                <div class="preference-btn" id="prefPriceNext">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="preference-item">
+              <div class="preference-info">
+                <label>Year (semakin baru semakin bagus)</label>
+                <div class="preference-description">
+                  Tahun produksi (benefit criterion)
+                </div>
+              </div>
+              <div class="preference-control">
+                <div class="preference-btn" id="prefYearPrev">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="preference-value" id="prefYearValue">1</div>
+                <div class="preference-btn" id="prefYearNext">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="preference-item">
+              <div class="preference-info">
+                <label>Top Speed (semakin tinggi semakin bagus)</label>
+                <div class="preference-description">
+                  Kecepatan maksimum (benefit criterion)
+                </div>
+              </div>
+              <div class="preference-control">
+                <div class="preference-btn" id="prefTopSpeedPrev">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="preference-value" id="prefTopSpeedValue">1</div>
+                <div class="preference-btn" id="prefTopSpeedNext">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="preference-item">
+              <div class="preference-info">
+                <label>Capacity (semakin banyak semakin bagus)</label>
+                <div class="preference-description">
+                  Jumlah penumpang (benefit criterion)
+                </div>
+              </div>
+              <div class="preference-control">
+                <div class="preference-btn" id="prefCapacityPrev">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="preference-value" id="prefCapacityValue">1</div>
+                <div class="preference-btn" id="prefCapacityNext">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="preference-item">
+              <div class="preference-info">
+                <label>Acceleration (semakin cepat semakin bagus)</label>
+                <div class="preference-description">
+                  Waktu 0-100 km/jam (cost criterion)
+                </div>
+              </div>
+              <div class="preference-control">
+                <div class="preference-btn" id="prefAccelerationPrev">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="preference-value" id="prefAccelerationValue">1</div>
+                <div class="preference-btn" id="prefAccelerationNext">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="preference-item">
+              <div class="preference-info">
+                <label>Fuel Capacity (semakin besar semakin bagus)</label>
+                <div class="preference-description">
+                  Kapasitas tangki bahan bakar (benefit criterion)
+                </div>
+              </div>
+              <div class="preference-control">
+                <div class="preference-btn" id="prefFuelCapacityPrev">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="preference-value" id="prefFuelCapacityValue">1</div>
+                <div class="preference-btn" id="prefFuelCapacityNext">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="note" id="noteContent">
+          <strong>Catatan Penilaian:</strong><br />
+          Nilai diberikan dalam skala 1–10 sesuai preferensi Anda.<br />
+          <ul>
+            <li>
+              <strong>Price</strong> → Semakin <em>murah</em> (nilai kecil di
+              database), maka dianggap <em>lebih baik</em>.
+            </li>
+            <li>
+              <strong>Year</strong> → Semakin <em>baru</em> (nilai besar di
+              database), maka dianggap <em>lebih baik</em>.
+            </li>
+            <li>
+              <strong>Top Speed</strong> → Semakin <em>tinggi</em> (nilai besar
+              di database), maka dianggap <em>lebih baik</em>.
+            </li>
+            <li>
+              <strong>Capacity</strong> → Semakin <em>banyak</em> (nilai besar
+              di database), maka dianggap <em>lebih baik</em>.
+            </li>
+            <li>
+              <strong>Acceleration</strong> → Semakin <em>cepat</em> (nilai
+              kecil di database), maka dianggap <em>lebih baik</em>.
+            </li>
+            <li>
+              <strong>Fuel Capacity</strong> → Semakin <em>besar</em> (nilai
+              besar di database), maka dianggap <em>lebih baik</em>.
+            </li>
+          </ul>
+          <p>
+            Jadi, meskipun Anda memberi nilai preferensi tinggi (misalnya 10)
+            untuk kriteria tertentu, sistem TOPSIS akan otomatis memahami apakah
+            kriteria tersebut adalah <em>cost criterion</em> (semakin kecil
+            semakin baik) atau <em>benefit criterion</em> (semakin besar semakin
+            baik).
+          </p>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 20px">
+          <button id="refreshBtn">Calculate Decision</button>
+        </div>
+      </div>
+
+      <!-- Result View -->
+      <div id="resultView" class="result-view">
+        <button id="backBtn" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+
+        <div class="card">
+          <div id="resultArea" class="small">Belum ada hasil perhitungan.</div>
+        </div>
+      </div>
+
+      <!-- Detail View -->
+      <div id="detailView" class="detail-view">
+        <button id="backFromDetail" class="back-btn">
+          <i class="fas fa-arrow-left"></i> Back to Results
+        </button>
+
+        <div class="card">
+          <h3 id="detailTitle"><i class="fas fa-car"></i> Detail Kendaraan</h3>
+          <div id="detailContent">
+            <div class="loading">
+              <i class="fas fa-spinner fa-spin fa-2x"></i>
+              <p>Loading</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Guide -->
+    <div id="guideModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-info-circle"></i> Guide</h3>
+          <button class="close-modal" id="closeModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="note" style="display: block">
+          Nilai diberikan dalam skala 1–10 sesuai preferensi Anda.<br /><br />
+
+          <p>
+            <strong>Price</strong> → Semakin murah (nilai kecil), maka dianggap
+            lebih baik. <br /><br />
+
+            <strong>Year</strong> → Semakin baru (nilai besar), maka dianggap
+            lebih baik.<br /><br />
+            <strong>Top Speed</strong> → Semakin tinggi (nilai besar), maka
+            dianggap lebih baik.<br /><br />
+            <strong>Capacity</strong> → Semakin banyak (nilai besar), maka
+            dianggap lebih baik.<br /><br />
+            <strong>Acceleration</strong> → Semakin cepat (nilai kecil), maka
+            dianggap lebih baik.<br /><br />
+            <strong>Fuel Capacity</strong> → Semakin besar (nilai besar), maka
+            dianggap lebih baik.<br /><br />
+          </p>
+          <p>
+            Jadi, meskipun Anda memberi nilai preferensi tinggi (misalnya 10)
+            untuk kriteria tertentu, sistem TOPSIS akan otomatis memahami apakah
+            kriteria tersebut adalah <em>cost criterion</em> (semakin kecil
+            semakin baik) atau <em>benefit criterion</em> (semakin besar semakin
+            baik).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script biasa (bukan module) untuk fungsi global -->
+    <script>
+      async function findAndShowCarDetail(brand, model) {
+        try {
+          console.log("Searching for car:", brand, model);
+
+          const q = query(
+            collection(db, "cars"),
+            where("brand", "==", brand),
+            where("model", "==", model)
+          );
+
+          const querySnapshot = await getDocs(q);
+
+          if (!querySnapshot.empty) {
+            const carDoc = querySnapshot.docs[0];
+            const carId = carDoc.id;
+            const carData = carDoc.data();
+
+            console.log("Car found:", carData);
+
+            // Tampilkan halaman detail mobil dengan parameter URL
+            showPage("carDetail", { brand, model, carId, carData });
+          } else {
+            console.error("Car not found");
+            showNotification(
+              "Tidak Ditemukan",
+              `Mobil dengan brand ${brand} dan model ${model} tidak ditemukan.`
+            );
+            showPage("cars");
+          }
+        } catch (error) {
+          console.error("Error finding car:", error);
+          showNotification("Error", "Gagal mencari data mobil.");
+          showPage("cars");
+        }
+      }
+
+      // Fungsi untuk menampilkan detail mobil
+      function showCarDetail(brand, model) {
+        // Sembunyikan tampilan awal dan hasil
+        document.getElementById("initialView").style.display = "none";
+        document.getElementById("resultView").style.display = "none";
+
+        // Tampilkan tampilan detail
+        document.getElementById("detailView").style.display = "block";
+
+        // Set judul detail
+        document.getElementById(
+          "detailTitle"
+        ).innerHTML = `<i class="fas fa-car"></i> ${brand} ${model}`;
+
+        // Reset konten detail
+        document.getElementById("detailContent").innerHTML = `
+          <div class="loading">
+            <i class="fas fa-spinner fa-spin fa-2x"></i>
+            <p>Memuat detail mobil...</p>
+          </div>
+        `;
+
+        // Ambil data detail mobil
+        fetchCarDetail(brand, model);
+      }
+
+      // Fungsi untuk mengambil detail mobil dari Firebase
+      async function fetchCarDetail(brand, model) {
+        try {
+          const { getFirestore, collection, getDocs, query, where } =
+            await import(
+              "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js"
+            );
+          const db = getFirestore();
+
+          const carsRef = collection(db, "cars");
+          const q = query(
+            carsRef,
+            where("brand", "==", brand),
+            where("model", "==", model)
+          );
+          const querySnapshot = await getDocs(q);
+
+          if (querySnapshot.empty) {
+            document.getElementById("detailContent").innerHTML = `
+              <div class="error">
+                <i class="fas fa-exclamation-triangle fa-2x"></i>
+                <p>Data mobil tidak ditemukan</p>
+              </div>
+            `;
+            return;
+          }
+
+          const carData = querySnapshot.docs[0].data();
+          displayCarDetail(carData);
+        } catch (error) {
+          console.error("Error fetching car detail:", error);
+          document.getElementById("detailContent").innerHTML = `
+            <div class="error">
+              <i class="fas fa-exclamation-triangle fa-2x"></i>
+              <p>Gagal memuat data: ${error.message}</p>
+            </div>
+          `;
+        }
+      }
+
+      // Fungsi untuk menampilkan detail mobil
+      function displayCarDetail(car) {
+        const detailContent = document.getElementById("detailContent");
+
+        detailContent.innerHTML = `
+          <div class="detail-grid">
+            <div class="detail-item">
+              <h4><i class="fas fa-tag"></i> Harga</h4>
+              <p>$${Number(car.price || 0).toLocaleString()}</p>
+            </div>
+            <div class="detail-item">
+              <h4><i class="fas fa-calendar"></i> Tahun</h4>
+              <p>${car.year}</p>
+            </div>
+            <div class="detail-item">
+              <h4><i class="fas fa-tachometer-alt"></i> Kecepatan Maks</h4>
+              <p>${Number(car.topSpeed || 0).toLocaleString()} km/h</p>
+            </div>
+            <div class="detail-item">
+              <h4><i class="fas fa-users"></i> Kapasitas</h4>
+              <p>${car.capacity} seats</p>
+            </div>
+            <div class="detail-item">
+              <h4><i class="fas fa-rocket"></i> Akselerasi</h4>
+              <p>${car.acceleration} s (0-100 km/h)</p>
+            </div>
+            <div class="detail-item">
+              <h4><i class="fas fa-gas-pump"></i> Kapasitas Bahan Bakar</h4>
+              <p>${Number(car.fuelCapacity || 0).toLocaleString()} L</p>
+            </div>
+          </div>
+          
+          <div class="card" style="margin-top: 20px;">
+            <h3><i class="fas fa-list"></i> Kategori</h3>
+            <p>${car.categories || "Tidak tersedia"}</p>
+          </div>
+          
+          <div class="card" style="margin-top: 20px;">
+            <h3><i class="fas fa-info-circle"></i> Deskripsi</h3>
+            <p>${
+              car.description ||
+              "Tidak ada deskripsi tersedia untuk kendaraan ini."
+            }</p>
+          </div>
+        `;
+      }
+
+      // Fungsi untuk mengontrol nilai preferensi
+      function setupPreferenceControls() {
+        const preferences = [
+          "Price",
+          "Year",
+          "TopSpeed",
+          "Capacity",
+          "Acceleration",
+          "FuelCapacity",
+        ];
+
+        preferences.forEach((pref) => {
+          const valueElement = document.getElementById(`pref${pref}Value`);
+          const prevButton = document.getElementById(`pref${pref}Prev`);
+          const nextButton = document.getElementById(`pref${pref}Next`);
+
+          let value = 1; // Nilai awal adalah 1, bukan 0
+
+          // Nonaktifkan tombol prev saat nilai sudah 1
+          prevButton.disabled = true;
+
+          prevButton.addEventListener("click", () => {
+            if (value > 1) {
+              value--;
+              valueElement.textContent = value;
+
+              // Nonaktifkan tombol prev jika nilai sudah mencapai minimum
+              prevButton.disabled = value === 1;
+
+              // Aktifkan tombol next jika sebelumnya dinonaktifkan
+              nextButton.disabled = false;
+            }
+          });
+
+          nextButton.addEventListener("click", () => {
+            if (value < 10) {
+              value++;
+              valueElement.textContent = value;
+
+              // Aktifkan tombol prev jika sebelumnya dinonaktifkan
+              prevButton.disabled = false;
+
+              // Nonaktifkan tombol next jika nilai sudah mencapai maksimum
+              nextButton.disabled = value === 10;
+            }
+          });
+        });
+      }
+
+      // Fungsi untuk menyiapkan modal
+      function setupModal() {
+        const guideBtn = document.getElementById("guideBtn");
+        const guideModal = document.getElementById("guideModal");
+        const closeModal = document.getElementById("closeModal");
+
+        guideBtn.addEventListener("click", () => {
+          guideModal.style.display = "flex";
+        });
+
+        closeModal.addEventListener("click", () => {
+          guideModal.style.display = "none";
+        });
+
+        // Tutup modal jika mengklik di luar konten modal
+        window.addEventListener("click", (event) => {
+          if (event.target === guideModal) {
+            guideModal.style.display = "none";
+          }
+        });
+      }
+
+      // Fungsi untuk mengatur navigasi antara tampilan
+      function setupViewNavigation() {
+        const initialView = document.getElementById("initialView");
+        const resultView = document.getElementById("resultView");
+        const detailView = document.getElementById("detailView");
+        const refreshBtn = document.getElementById("refreshBtn");
+        const backBtn = document.getElementById("backBtn");
+        const backFromDetail = document.getElementById("backFromDetail");
+
+        refreshBtn.addEventListener("click", () => {
+          // Sembunyikan tampilan awal dan tampilkan hasil
+          initialView.style.display = "none";
+          detailView.style.display = "none";
+          resultView.style.display = "block";
+          window.scrollTo(0, 0);
+        });
+
+        backBtn.addEventListener("click", () => {
+          // Navigasi ke halaman utama dengan hash #home
+          window.location.href = "topsis.html";
+        });
+
+        backFromDetail.addEventListener("click", () => {
+          // Navigasi ke halaman hasil dengan hash #results
+          window.location.href = "index.html#results";
+        });
+      }
+
+      // Fungsi untuk parsing parameter dari hash URL
+      function getHashParams() {
+        const hash = window.location.hash.substring(1);
+        const params = {};
+
+        if (hash) {
+          const hashParts = hash.split("?");
+          if (hashParts.length > 1) {
+            const queryString = hashParts[1];
+            const urlParams = new URLSearchParams(queryString);
+
+            for (const [key, value] of urlParams.entries()) {
+              params[key] = value;
+            }
+          }
+        }
+
+        return params;
+      }
+
+      //parsing parameter dari query string URL
+      function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const params = {};
+
+        for (const [key, value] of urlParams.entries()) {
+          params[key] = value;
+        }
+
+        return params;
+      }
+
+      // hash #dashboard
+      function handleDashboardHash() {
+        // Cek parameter brand dan model di query string
+        const queryParams = getQueryParams();
+
+        if (queryParams.brand && queryParams.model) {
+          const url = `index.html#carDetail?brand=${encodeURIComponent(
+            queryParams.brand
+          )}&model=${encodeURIComponent(queryParams.model)}`;
+          console.log("Redirecting from dashboard to:", url);
+          window.location.href = url;
+        } else {
+          document.getElementById("initialView").style.display = "block";
+          document.getElementById("resultView").style.display = "none";
+          document.getElementById("detailView").style.display = "none";
+        }
+      }
+
+      // Inisialisasi semua fungsi saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", () => {
+        const hash = window.location.hash.substring(1);
+        const params = getHashParams();
+
+        if (hash === "dashboard") {
+          handleDashboardHash();
+        } else if (hash === "carDetail" && params.brand && params.model) {
+          showCarDetail(params.brand, params.model);
+        } else if (hash === "results") {
+          document.getElementById("initialView").style.display = "none";
+          document.getElementById("resultView").style.display = "block";
+          document.getElementById("detailView").style.display = "none";
+        } else {
+          document.getElementById("initialView").style.display = "block";
+          document.getElementById("resultView").style.display = "none";
+          document.getElementById("detailView").style.display = "none";
+          //halaman utamanya
+        }
+
+        setupPreferenceControls();
+        setupModal();
+        setupViewNavigation();
+      });
+      window.addEventListener("hashchange", () => {
+        const hash = window.location.hash.substring(1);
+        const params = getHashParams();
+
+        console.log("Hash changed to:", hash);
+        console.log("New hash params:", params);
+
+        if (hash === "dashboard") {
+          // Tangani hash #dashboard
+          handleDashboardHash();
+        } else if (hash === "carDetail" && params.brand && params.model) {
+          // Tampilkan detail mobil
+          showCarDetail(params.brand, params.model);
+        } else if (hash === "results") {
+          // Tampilkan hasil
+          document.getElementById("initialView").style.display = "none";
+          document.getElementById("resultView").style.display = "block";
+          document.getElementById("detailView").style.display = "none";
+        } else {
+          // Tampilkan halaman utama
+          document.getElementById("initialView").style.display = "block";
+          document.getElementById("resultView").style.display = "none";
+          document.getElementById("detailView").style.display = "none";
+        }
+      });
+    </script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+      } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyD7EYh13imMcwxLd2Y1AXC4LfNtsxz9590",
+        authDomain: "autoluxenew.firebaseapp.com",
+        projectId: "autoluxenew",
+        storageBucket: "autoluxenew.firebasestorage.app",
+        messagingSenderId: "28647930719",
+        appId: "1:28647930719:web:fc5b19fbc58db2305a14ea",
+        measurementId: "G-EX5N552Z0E",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const resultArea = document.getElementById("resultArea");
+      const refreshBtn = document.getElementById("refreshBtn");
+
+      async function fetchCars() {
+        try {
+          console.log("Fetching cars data...");
+          const snap = await getDocs(collection(db, "cars"));
+          const cars = snap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          console.log("Cars data fetched:", cars.length, "cars");
+
+          if (cars.length === 0) {
+            resultArea.innerText = "Tidak ada data mobil di Firestore.";
+            return;
+          }
+
+          //preferensi user diambil
+          const prefPrice = Number(
+            document.getElementById("prefPriceValue").textContent
+          );
+          const prefYear = Number(
+            document.getElementById("prefYearValue").textContent
+          );
+          const prefTopSpeed = Number(
+            document.getElementById("prefTopSpeedValue").textContent
+          );
+          const prefCapacity = Number(
+            document.getElementById("prefCapacityValue").textContent
+          );
+          const prefAcceleration = Number(
+            document.getElementById("prefAccelerationValue").textContent
+          );
+          const prefFuelCapacity = Number(
+            document.getElementById("prefFuelCapacityValue").textContent
+          );
+
+          const total =
+            prefPrice +
+            prefYear +
+            prefTopSpeed +
+            prefCapacity +
+            prefAcceleration +
+            prefFuelCapacity;
+
+          const weights = {
+            price: prefPrice / total,
+            year: prefYear / total,
+            topSpeed: prefTopSpeed / total,
+            capacity: prefCapacity / total,
+            acceleration: prefAcceleration / total,
+            fuelCapacity: prefFuelCapacity / total,
+          };
+
+          const selectedCategories = [];
+          const categoryCheckboxes = document.querySelectorAll(
+            '.category-item input[type="checkbox"]:checked'
+          );
+          categoryCheckboxes.forEach((checkbox) => {
+            selectedCategories.push(checkbox.value);
+          });
+
+          // Filter mobil berdasarkan kategori yang dipilih
+          let filtered = cars;
+          if (selectedCategories.length > 0) {
+            filtered = cars.filter((car) => {
+              if (!car.categories) return false;
+              if (typeof car.categories === "string") {
+                return selectedCategories.includes(car.categories);
+              }
+              // intersection dengan selectedCategories
+              if (Array.isArray(car.categories)) {
+                return car.categories.some((cat) =>
+                  selectedCategories.includes(cat)
+                );
+              }
+
+              return false;
+            });
+          }
+
+          console.log("Filtered by category:", filtered.length, "cars");
+
+          // Filter mobil yang memiliki semua kriteria yang diperlukan
+          filtered = filtered.filter(
+            (c) =>
+              c.price &&
+              c.year &&
+              c.topSpeed &&
+              c.capacity &&
+              c.acceleration &&
+              c.fuelCapacity
+          );
+
+          console.log("Filtered by criteria:", filtered.length, "cars");
+
+          if (filtered.length === 0) {
+            resultArea.innerText =
+              "Tidak ada mobil yang sesuai dengan kriteria dan kategori yang dipilih.";
+            return;
+          }
+
+          // Kriteria: price (cost), year (benefit), topSpeed (benefit), capacity (benefit),
+          // acceleration (cost), fuelCapacity (benefit)
+          const criteria = [
+            "price",
+            "year",
+            "topSpeed",
+            "capacity",
+            "acceleration",
+            "fuelCapacity",
+          ];
+          const isBenefit = {
+            price: false,
+            year: true,
+            topSpeed: true,
+            capacity: true,
+            acceleration: false,
+            fuelCapacity: true,
+          };
+
+          // Normalisasi skala 0–10
+          const mins = {},
+            maxs = {};
+          criteria.forEach((c) => {
+            const vals = filtered.map((x) => Number(x[c]) || 0);
+            mins[c] = Math.min(...vals);
+            maxs[c] = Math.max(...vals);
+          });
+
+          const normalized = filtered.map((car) => {
+            const norm = {};
+            criteria.forEach((c) => {
+              const x = Number(car[c]) || 0;
+              norm[c] =
+                maxs[c] === mins[c]
+                  ? 5
+                  : 10 * ((x - mins[c]) / (maxs[c] - mins[c]));
+            });
+            return { ...car, norm };
+          });
+
+          // topsisnyaa
+          const denom = {};
+          criteria.forEach((c) => {
+            denom[c] = Math.sqrt(
+              normalized.reduce((sum, car) => sum + Math.pow(car.norm[c], 2), 0)
+            );
+          });
+
+          const weighted = normalized.map((car) => {
+            const val = {};
+            criteria.forEach((c) => {
+              val[c] = (car.norm[c] / denom[c]) * weights[c];
+            });
+            return { ...car, weighted: val };
+          });
+
+          const idealPlus = {},
+            idealMinus = {};
+          criteria.forEach((c) => {
+            const arr = weighted.map((x) => x.weighted[c]);
+            idealPlus[c] = isBenefit[c] ? Math.max(...arr) : Math.min(...arr);
+            idealMinus[c] = isBenefit[c] ? Math.min(...arr) : Math.max(...arr);
+          });
+
+          const results = weighted
+            .map((car) => {
+              const dPlus = Math.sqrt(
+                criteria.reduce(
+                  (sum, c) => sum + Math.pow(car.weighted[c] - idealPlus[c], 2),
+                  0
+                )
+              );
+              const dMinus = Math.sqrt(
+                criteria.reduce(
+                  (sum, c) =>
+                    sum + Math.pow(car.weighted[c] - idealMinus[c], 2),
+                  0
+                )
+              );
+              const score = dMinus / (dPlus + dMinus);
+              return { ...car, score };
+            })
+            .sort((a, b) => b.score - a.score);
+
+          // Ambil hanya 5 mobil teratas
+          const topResults = results.slice(0, 5);
+
+          // result pada table
+          let html = `
+            <div class="result-info">
+              <div>
+                <h4>Top 5 Mobil Berdasarkan Perhitungan</h4>
+              </div>
+              <div class="result-stats">
+                <div class="stat-item">
+                  <div class="stat-value">${topResults.length}</div>
+                  <div class="stat-label">Top Cars</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">${
+                    selectedCategories.length > 0
+                      ? selectedCategories.length
+                      : "ALL"
+                  }</div>
+                  <div class="stat-label">Category</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value">${(
+                    topResults[0]?.score * 100 || 0
+                  ).toFixed(1)}%</div>
+                  <div class="stat-label">Highest Score</div>
+                </div>
+              </div>
+            </div>
+            <div class="result-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>RANK</th>
+                  <th>CAR</th>
+                  <th>PRICE</th>
+                  <th>Year</th>
+                  <th>Top Speed</th>
+                  <th>Capacity</th>
+                  <th>Acceleration</th>
+                  <th>Fuel Capacity</th>
+                  <th>Score</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+          `;
+
+          // Gunakan topResults untuk menampilkan tabel
+          topResults.forEach((r, i) => {
+            const brand = r.brand || "";
+            const model = r.model || "";
+            console.log(`Adding row ${i + 1}: ${brand} ${model}`);
+
+            // top 3
+            let rowClass = "";
+            if (i === 0) rowClass = "rank-1";
+            else if (i === 1) rowClass = "rank-2";
+            else if (i === 2) rowClass = "rank-3";
+
+            // icon untuk top 3
+            let rankIcon = "";
+            if (i === 0) rankIcon = '<i class="fas fa-trophy"></i>';
+            else if (i === 1) rankIcon = '<i class="fas fa-medal"></i>';
+            else if (i === 2) rankIcon = '<i class="fas fa-award"></i>';
+
+            html += `
+            <tr class="${rowClass}">
+              <td>
+                <div class="rank-badge">${i + 1}</div>
+                ${rankIcon}
+              </td>
+              <td><strong>${brand} ${model}</strong></td>
+              <td>$${Number(r.price || 0).toLocaleString()}</td>
+              <td>${r.year}</td>
+              <td>${Number(r.topSpeed || 0).toLocaleString()} km/h</td>
+              <td>${r.capacity} seats</td>
+              <td>${r.acceleration} s</td>
+              <td>${Number(r.fuelCapacity || 0).toLocaleString()} L</td>
+              <td><strong>${(r.score * 100).toFixed(3)}%</strong></td>
+              <td>
+                <button class="action-btn" onclick="viewCarDetail('${brand.replace(
+                  /'/g,
+                  "\\'"
+                )}', '${model.replace(/'/g, "\\'")}')">
+                  Discover
+                </button>
+              </td>
+            </tr>
+          `;
+          });
+
+          html += "</tbody></table></div>";
+          resultArea.innerHTML = html;
+
+          // animasi table bujng
+          setTimeout(() => {
+            const resultTable = document.querySelector(".result-table");
+            if (resultTable) {
+              resultTable.classList.add("show");
+            }
+          }, 100);
+        } catch (err) {
+          resultArea.innerText =
+            "Gagal mengambil data dari Firestore: " + err.message;
+        }
+      }
+
+      refreshBtn.addEventListener("click", fetchCars);
+    </script>
+
+    <script>
+      function viewCarDetail(brand, model) {
+        localStorage.setItem("carDetailBrand", brand);
+        localStorage.setItem("carDetailModel", model);
+
+        // Arahkan ke index.html dengan parameter URL
+        window.location.href = `index.html#carDetail?brand=${encodeURIComponent(
+          brand
+        )}&model=${encodeURIComponent(model)}`;
+      }
+    </script>
+  </body>
+</html>
