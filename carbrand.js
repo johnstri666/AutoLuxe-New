@@ -16,7 +16,7 @@ const carBrands = {
   Lamborghini: "/asset/carlogo/Lamborghini.svg",
   Maserati:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Maserati_logo.svg/1200px-Maserati_logo.svg.png",
-  Mazda: "/asset/carLogo/mazda.png",
+  Mazda: "/asset/carlogo/mazda.png",
   McLaren: "/asset/carlogo/Mclaren.png",
   "Mercedes-Benz":
     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_Logo_2010.svg/1200px-Mercedes-Benz_Logo_2010.svg.png",
@@ -25,6 +25,7 @@ const carBrands = {
   BYD: "/asset/carlogo/byd.svg",
   WMotors: "/asset/carlogo/wmotors.png",
 };
+
 
 
 
