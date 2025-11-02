@@ -7,7 +7,7 @@ const carBrands = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Acura_logo.svg/1200px-Acura_logo.svg.png",
   BMW: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/1200px-BMW.svg.png",
   Ferrari:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ferrari_Logo.svg/1200px-Ferrari_Logo.svg.png",
+    "/asset/carlogo/Ferrari.svg",
   Ford: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ford_Motor_Company_Logo.svg/1200px-Ford_Motor_Company_Logo.svg.png",
   Honda: "/asset/carlogo/Honda.svg",
   Jeep: "/asset/carlogo/jeep.svg",
@@ -25,6 +25,7 @@ const carBrands = {
   BYD: "/asset/carlogo/byd.svg",
   WMotors: "/asset/carlogo/wmotors.png",
 };
+
 
 
 
