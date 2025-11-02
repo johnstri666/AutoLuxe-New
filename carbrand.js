@@ -9,7 +9,7 @@ const carBrands = {
   Ferrari:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ferrari_Logo.svg/1200px-Ferrari_Logo.svg.png",
   Ford: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Ford_Motor_Company_Logo.svg/1200px-Ford_Motor_Company_Logo.svg.png",
-  Honda: "/asset/carlogo/honda.png",
+  Honda: "/asset/carlogo/Honda.svg",
   Jeep: "/asset/carlogo/jeep.svg",
   Koenigsegg:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Koenigsegg_logo.svg/1200px-Koenigsegg_logo.svg.png",
@@ -25,6 +25,7 @@ const carBrands = {
   BYD: "/asset/carlogo/byd.svg",
   WMotors: "/asset/carlogo/wmotors.png",
 };
+
 
 
 
