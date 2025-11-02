@@ -275,15 +275,15 @@
           </div>
         </section>
 
-        <!-- Featured s Section -->
+        <!-- Featured Brands Section -->
         <section class="py-16 bg-black">
           <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-light mb-12 text-center font-orbitron">
-              OUR EXCLUSIVE S
+              OUR EXCLUSIVE BRANDS
             </h2>
             <div
               class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8"
-              id="-grid"
+              id="brand-grid"
             ></div>
           </div>
         </section>
@@ -413,7 +413,7 @@
                 <div class="text-gray-300 space-y-6 text-lg">
                   <p class="leading-relaxed">
                     AutoLuxe menawarkan koleksi mobil yang tersedia dengan
-                    berbagai  dan kategori mobil yang bervariasi serta
+                    berbagai brand dan kategori mobil yang bervariasi serta
                     dengan level kualitas yang tinggi.
                   </p>
                   <p class="leading-relaxed">
@@ -444,7 +444,7 @@
                     15+
                   </div>
                   <div class="text-sm uppercase tracking-wider text-gray-300">
-                     High-End Vehicles
+                    Brand High-End Vehicles
                   </div>
                 </div>
               </div>
@@ -1121,7 +1121,7 @@
             <form id="carForm" class="space-y-6">
               <input type="hidden" id="carId" />
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!--  Selection -->
+                <!-- Brand Selection -->
                 <div class="relative">
                   <label class="block text-sm text-white mb-1">Brand</label>
                   <div class="flex items-center">
@@ -4136,10 +4136,10 @@
       window.handleDiscoverClick = function () {
         if (currentUserId) {
           //  user udah login maka keopen
-          window.location.href = "drivelogic.html";
+          window.location.href = "topsis.html";
         } else {
           // Jika user belum login, simpan di localStorage dan arahkan ke login
-          localStorage.setItem("redirectAfterLogin", "drivelogic.html");
+          localStorage.setItem("redirectAfterLogin", "topsis.html");
           showNotification("Login Required", "Please login to access");
           showPage("login");
         }
@@ -5569,7 +5569,7 @@
         { name: "BMW", img: "BMW.svg", scale: "scale-[1.5]" },
 
         { name: "BYD", img: "BYD.svg", scale: "scale-[1]" },
-        { name: "Honda", img: "Honda.svg", scale: "scale-[1]" },
+        { name: "Honda", img: "Honda.png", scale: "scale-[1]" },
         { name: "Mitsubishi", img: "Mitsubishi.svg", scale: "scale-[1]" },
         { name: "Ford", img: "Ford.svg", scale: "scale-[1.2]" },
         { name: "Infiniti", img: "infiniti.svg", scale: "scale-[0.7]" },
@@ -5607,5 +5607,3 @@
     </script>
   </body>
 </html>
-
-
