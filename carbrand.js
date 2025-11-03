@@ -25,8 +25,10 @@ const carBrands = {
   Mitsubishi:
     "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mitsubishi_logo.svg/1200px-Mitsubishi_logo.svg.png",
   BYD: "/asset/carlogo/byd.svg",
+  Toyota: "/asset/carlogo/Toyota.svg",
   WMotors: "/asset/carlogo/wmotors.png",
 };
+
 
 
 
