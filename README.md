@@ -1,5 +1,4 @@
-<img width="244" height="85" alt="image" src="https://github.com/user-attachments/assets/8c010302-a86a-46e7-928d-399c1230c6e5" /># AutoLuxe
-
+# Title: AUTOLUXE 
 # Description
 Autoluxe merupakan web yang menampilkan berbagai koleksi mobil dari low-high level dengan berbagai brand mobil di seluruh dunia untuk bisa membantu user dalam menemukan dan membeli mobil impianya. Platform ini dirancang untuk memberikan pengalaman eksklusif bagi pengguna yang mencari informasi detail tentang kendaraan premium, mulai dari spesifikasi teknis hingga galeri foto dan video.
 
@@ -41,9 +40,9 @@ Backend : Firebase
 
 # Setup Instruction
 Clone Repository:
+
 git clone https://github.com/username/autoluxe.git
 cd autoluxe
-////////////////////////////////////////////////////
 
 1. Akun Firebase dengan proyek aktif
 2. Diperlukan koneksi internet stabil ke Firebase
@@ -61,6 +60,7 @@ const firebaseConfig = {
   appId: "1:xxxxxxxxxxxxxxxxx",
   measurementId: "G-xxxxxxxxxxxxxxxx"
 };
+
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
