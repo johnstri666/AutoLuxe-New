@@ -1,4 +1,6 @@
-<img width="553" height="274" alt="image" src="https://github.com/user-attachments/assets/abdb29fc-ce7c-4b19-8c61-1dd91b763a43" /># Title: AUTOLUXE 
+# Title: AUTOLUXE 
+
+
 # Description
 
 <img width="1298" height="628" alt="image" src="https://github.com/user-attachments/assets/aab89b74-0244-4693-8701-2327cc138f28" />
