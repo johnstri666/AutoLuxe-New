@@ -16,9 +16,11 @@ Backend : Firebase
 # Features
 1. Sistem autentikasi user dan admin
    - Login and Register
+     
      <img width="523" height="233" alt="image" src="https://github.com/user-attachments/assets/2322a94d-c8c9-4092-ae8e-217eb4ea7a53" />
 
    - Forget Password
+     
      <img width="553" height="274" alt="image" src="https://github.com/user-attachments/assets/d5cf5c5b-d47b-413e-ba2b-506bca6fa9ee" />
 
    - Sistem berdasarkan peran (user / admin)
