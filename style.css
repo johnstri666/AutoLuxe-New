@@ -463,10 +463,9 @@ body[data-theme="light"] .glass-effect {
   font-weight: 300;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+  color: white;
 }
 
 @keyframes glow {
@@ -1602,3 +1601,4 @@ body[data-theme="light"] .glass-effect {
     border: 1px solid #ccc;
   }
 }
+
