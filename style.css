@@ -602,6 +602,21 @@ body[data-theme="light"] .glass-effect {
   transform: scale(1.1);
 }
 
+.engine-sound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.audio-visualizer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
 /* Modern Engine Sound Visualizer Styles */
 .audio-visualizer-container {
   margin-top: 4rem;
@@ -787,7 +802,6 @@ body[data-theme="light"] .glass-effect {
   transform: translateY(-50%);
   transition: all 0.5s ease-out;
   z-index: 5;
-  border-radius: 1px 1px 0 0;
 }
 
 /* Glow effect */
@@ -820,24 +834,18 @@ body[data-theme="light"] .glass-effect {
 /* Responsive */
 @media (max-width: 600px) {
   .visualizer {
-    width: 320px;
-    height: 320px;
+    width: 300px;
+    height: 300px;
   }
 
   .center-circle {
-    width: 140px;
-    height: 140px;
+    width: 220px;
+    height: 220px;
   }
 
   .play {
-    width: 120px;
-    height: 120px;
-  }
-
-  .btn-play {
-    border-left-width: 25px;
-    border-top-width: 15px;
-    border-bottom-width: 15px;
+    width: 220px;
+    height: 220px;
   }
 
   .btn-pause::before,
