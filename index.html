@@ -493,10 +493,7 @@
       </style>
 
       <!-- Car Detail Page -->
-      <div
-        id="carDetail"
-        class="page hidden relative overflow-hidden bg-black"
-      >
+      <div id="carDetail" class="page hidden relative overflow-hidden bg-black">
         <!-- Konten Asli -->
         <div
           class="relative z-10 max-w-6xl mx-auto px-6 py-12 car-detail-container"
@@ -582,9 +579,7 @@
           <!-- Video Section -->
           <div id="videoSection" class="car-detail-section hidden">
             <div class="video-container">
-              <div id="videoContainer">
-                <!-- Video will be embedded here -->
-              </div>
+              <div id="videoContainer"></div>
             </div>
           </div>
 
@@ -2629,7 +2624,7 @@
                 const row = document.createElement("tr");
                 // Alternating row colors
                 row.style.backgroundColor =
-                  index % 2 === 0 ? "#16171a" : "#0b0c0f";
+                  index % 2 === 0 ? "#1e1f21" : "#0b0c0f";
                 row.innerHTML = `
                   <td class="px-6 py-4 text-white">${field.title}</td>
                   <td class="px-6 py-4 text-right">${field.value}</td>
@@ -2639,7 +2634,7 @@
             } else {
               const row = document.createElement("tr");
               row.innerHTML = `
-                <td colspan="2" class="px-6 py-4 text-center text-gray-500">No additional features</td>
+                <td colspan="2" class="px-6 py-4 text-center text-gray-500">No additional specifications</td>
               `;
               customFieldsTable.appendChild(row);
             }
@@ -2801,17 +2796,17 @@
 
         // ===== KONFIGURASI =====
         const CONFIG = {
-          elementCount: 200,
+          elementCount: 180,
           centerIndex: 25,
           centerRange: 6,
-          maxHeight: 160,
-          minHeight: 83,
-          mountainCurvePower: 25,
-          baseVariation: 10,
+          maxHeight: 150,
+          minHeight: 85,
+          mountainCurvePower: 30,
+          baseVariation: 0,
           // Konfigurasi untuk audio responsiveness
-          volumeSensitivity: 1.8, // Seberapa sensitif terhadap volume
-          smoothingFactor: 0.1, // Seberapa smooth transisi (0-1)
-          randomnessIntensity: 0.2, // Intensitas keacakan (0-1)
+          volumeSensitivity: 1.7, // Seberapa sensitif terhadap volume
+          smoothingFactor: 0.2, // Seberapa smooth transisi (0-1)
+          randomnessIntensity: 2.4, // Intensitas keacakan (0-1)
         };
 
         let elements = [];
@@ -2820,8 +2815,8 @@
         let isDestroyed = false;
 
         // Variabel untuk tracking volume audio
-        let currentVolume = 3;
-        let targetVolume = 3;
+        let currentVolume = 5;
+        let targetVolume = 5;
 
         // Array untuk menyimpan state acak tiap elemen
         let elementStates = [];
@@ -2881,7 +2876,7 @@
             // Inisialisasi state acak untuk setiap elemen
             elementStates.push({
               randomOffset: Math.random() * Math.PI * 2, // Phase offset acak
-              randomSpeed: 0.8 + Math.random() * 0.4, // Kecepatan acak (0.8-1.2)
+              randomSpeed: 1.2 + Math.random() * 0.4, // Kecepatan acak (0.8-1.2)
               randomAmplitude: 0.7 + Math.random() * 0.6, // Amplitudo acak (0.7-1.3)
               currentHeight: mountainHeight,
               targetHeight: mountainHeight,
@@ -3016,7 +3011,7 @@
           elementStates.forEach((state) => {
             state.randomOffset = Math.random() * Math.PI * 2;
             state.randomSpeed = 0.8 + Math.random() * 0.4;
-            state.randomAmplitude = 0.7 + Math.random() * 0.6;
+            state.randomAmplitude = 0.4 + Math.random() * 0.6;
           });
         };
 
@@ -3196,7 +3191,7 @@
 
         specs.forEach((spec, index) => {
           const row = document.createElement("tr");
-          row.style.backgroundColor = index % 2 === 0 ? "#16171a" : "#0b0c0f";
+          row.style.backgroundColor = index % 2 === 0 ? "#1e1f21" : "#0b0c0f";
           row.innerHTML = `
         <td class="px-6 py-4 text-white">${spec.label}</td>
         <td class="px-6 py-4 text-right">${spec.value}</td>
@@ -5566,4 +5561,3 @@
     </script>
   </body>
 </html>
-
