@@ -754,11 +754,6 @@ body[data-theme="light"] .glass-effect {
   cursor: pointer;
 }
 
-/* efek hover pada hexagon */
-.btn-pause:hover {
-  background: var(--madar);
-}
-
 /* dua batang pause */
 .btn-pause::before,
 .btn-pause::after {
@@ -1112,7 +1107,7 @@ body[data-theme="light"] .glass-effect {
 }
 
 .gallery-nav:hover {
-  background: var(--madar);
+  background: black;
   color: #000;
 }
 
@@ -1601,4 +1596,5 @@ body[data-theme="light"] .glass-effect {
     border: 1px solid #ccc;
   }
 }
+
 
