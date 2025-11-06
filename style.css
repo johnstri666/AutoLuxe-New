@@ -459,8 +459,8 @@ body[data-theme="light"] .glass-effect {
 }
 
 .car-detail-title {
-  font-size: 3rem;
-  font-weight: 300;
+  font-size: 2.5rem;
+  font-weight: 500;
   letter-spacing: 2px;
   margin-bottom: 0.5rem;
   -webkit-background-clip: text;
@@ -734,14 +734,6 @@ body[data-theme="light"] .glass-effect {
   border-bottom: 12px solid transparent;
 }
 
-.btn-play:hover {
-  background-color: var(--madar);
-}
-
-.btn-play:hover::before {
-  border-left: 20px solid white;
-}
-
 .btn-pause {
   position: relative;
   width: 64px;
@@ -775,23 +767,12 @@ body[data-theme="light"] .glass-effect {
   right: 24px;
 }
 
-/* efek hover pada batang */
-.btn-pause:hover::before,
-.btn-pause:hover::after {
-  background-color: #ffffff;
-}
-
 .element {
   position: absolute;
   bottom: 50%;
   left: 50%;
   width: 1px;
-  background: linear-gradient(
-    to top,
-    rgb(255, 255, 255) 0%,
-    rgb(255, 255, 255) 80%,
-    rgb(255, 255, 255) 100%
-  );
+  background: white;
   transform-origin: bottom center;
   transform: translateY(-50%);
   transition: all 0.5s ease-out;
@@ -809,7 +790,7 @@ body[data-theme="light"] .glass-effect {
   border-radius: 50%;
   background: linear-gradient(
     45deg,
-    rgba(255, 255, 255, 0.842) 0%,
+    rgb(255, 255, 255) 0%,
     rgba(78, 78, 79, 0.301) 20%,
     rgb(0, 0, 0) 100%
   );
@@ -1107,8 +1088,8 @@ body[data-theme="light"] .glass-effect {
 }
 
 .gallery-nav:hover {
-  background: black;
-  color: #000;
+  background: rgb(0, 0, 0);
+  color: #ffffff;
 }
 
 .gallery-nav.prev {
@@ -1596,5 +1577,3 @@ body[data-theme="light"] .glass-effect {
     border: 1px solid #ccc;
   }
 }
-
-
