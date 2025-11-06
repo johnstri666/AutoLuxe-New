@@ -1029,7 +1029,7 @@ body[data-theme="light"] .glass-effect {
 }
 
 .performance-stat:hover {
-  border-color: var(--madar);
+  border-color: white;
 }
 
 .performance-stat-value {
@@ -1304,7 +1304,7 @@ body[data-theme="light"] .glass-effect {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 195, 255, 0.1);
+  background: rgba(0, 190, 254, 0.144);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
@@ -1572,4 +1572,3 @@ body[data-theme="light"] .glass-effect {
     border: 1px solid #ccc;
   }
 }
-
