@@ -3312,8 +3312,8 @@ This website was created to provide the best information and services regarding 
           slider.appendChild(imgEl);
 
           const indicator = document.createElement("button");
-          indicator.className = `w-3 h-1 ${
-            index === 0 ? "bg-[var(--madar)]" : "bg-gray-600"
+          indicator.className = `w-4 h-1 ${
+            index === 0 ? "bg-white" : "bg-gray-600"
           }`;
           indicator.onclick = () => goToImage(index);
           indicators.appendChild(indicator);
@@ -3341,7 +3341,7 @@ This website was created to provide the best information and services regarding 
             "absolute inset-0 w-full h-full object-cover slide-exit";
         }
         if (indicators[currentImageIndex]) {
-          indicators[currentImageIndex].className = "w-3 h-1 bg-gray-600";
+          indicators[currentImageIndex].className = "w-4 h-1 bg-gray-600";
         }
 
         currentImageIndex =
@@ -5560,6 +5560,7 @@ This website was created to provide the best information and services regarding 
     </script>
   </body>
 </html>
+
 
 
 
