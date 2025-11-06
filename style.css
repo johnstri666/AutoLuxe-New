@@ -1167,11 +1167,6 @@ body[data-theme="light"] .glass-effect {
   font-size: 1.5rem;
 }
 
-.modal-nav:hover {
-  background: var(--madar);
-  color: white;
-}
-
 .modal-nav.prev {
   left: -70px;
 }
@@ -1577,3 +1572,4 @@ body[data-theme="light"] .glass-effect {
     border: 1px solid #ccc;
   }
 }
+
